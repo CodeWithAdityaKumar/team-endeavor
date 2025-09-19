@@ -4,6 +4,7 @@
 */
 
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 
 export default function Navbar() {
@@ -66,7 +67,7 @@ export default function Navbar() {
 
   return (
   <div className="navabar w-full h-[80px] md:h-[120px] bg-transparent absolute top-0 left-0 flex items-center justify-between px-4 md:px-[70px] z-[200]">
-      <div id="logo">
+      <div id="logo" className='w-100'>
         {/* Using public asset path */}
         <img src="/assests/logo.png" alt="logo" className="w-[45%] md:w-2/5" ref={navRefimg} />
       </div>
@@ -74,13 +75,13 @@ export default function Navbar() {
       <div className="listing hidden md:block" ref={navRef}>
         <ul className="list-none">
           <li className="inline-block mx-2 md:mx-[18px]">
-            <a href="#" className="no-underline text-white transition duration-500 font-semibold hover:text-[#cb1234]">Home</a>
+            <Link to="/" className="no-underline text-white transition duration-500 font-semibold hover:text-[#cb1234]">Home</Link>
           </li>
           <li className="inline-block mx-2 md:mx-[18px]">
-            <a href="#" className="no-underline text-white transition duration-500 font-semibold hover:text-[#cb1234]">Menu</a>
+            <Link to="/menu" className="no-underline text-white transition duration-500 font-semibold hover:text-[#cb1234]">Menu</Link>
           </li>
           <li className="inline-block mx-2 md:mx-[18px]">
-            <a href="#" className="no-underline text-white transition duration-500 font-semibold hover:text-[#cb1234]">O nass</a>
+            <Link to="/about" className="no-underline text-white transition duration-500 font-semibold hover:text-[#cb1234]">About</Link>
           </li>
 
           {/* Price item with special before/after lines */}
@@ -91,13 +92,13 @@ export default function Navbar() {
 
           {/* Hours item with after line */}
           <li className="inline-block mx-2 md:mx-[18px] relative after:content-[''] after:w-[1px] after:h-[45px] after:bg-[#cb1234] after:absolute after:bottom-[-100%] after:left-[110%]">
-            <a href="#" className="no-underline text-white font-semibold"><i className="fa-solid fa-cart-shopping text-[#cb1234] mr-[5px]"></i> Poniedzlatek- platek</a>
+            <a href="#" className="no-underline text-white font-semibold"><i className="fa-solid fa-cart-shopping text-[#cb1234] mr-[5px]"></i> Longowal - Punjab</a>
             <p className="text-[12px] text-[#b6b6b6] absolute top-[130%] left-[18%] w-full">ad 12:00 to 23.00</p>
           </li>
 
           {/* Phone item */}
           <li className="inline-block mx-2 md:mx-[18px] relative">
-            <a href="#" className="no-underline text-white font-semibold"><i className="fa-solid fa-phone text-[#cb1234] mr-[5px]"></i> +48 123 456 789</a>
+            <a href="#" className="no-underline text-white font-semibold"><i className="fa-solid fa-phone text-[#cb1234] mr-[5px]"></i> +91 123 456 789</a>
             <p className="text-[12px] text-[#cb1234] absolute top-[130%] left-[22%] w-full">Dial up</p>
           </li>
         </ul>
@@ -142,13 +143,13 @@ export default function Navbar() {
         <nav className="px-5 py-4">
           <ul className="space-y-4">
             <li>
-              <a href="#" className="block text-white font-semibold hover:text-[#cb1234]">Home</a>
+              <Link to="/" onClick={() => setOpen(false)} className="block text-white font-semibold hover:text-[#cb1234]">Home</Link>
             </li>
             <li>
-              <a href="#" className="block text-white font-semibold hover:text-[#cb1234]">Menu</a>
+              <Link to="/menu" onClick={() => setOpen(false)} className="block text-white font-semibold hover:text-[#cb1234]">Menu</Link>
             </li>
             <li>
-              <a href="#" className="block text-white font-semibold hover:text-[#cb1234]">O nass</a>
+              <Link to="/about" onClick={() => setOpen(false)} className="block text-white font-semibold hover:text-[#cb1234]">About</Link>
             </li>
             <li className="pt-2 border-t border-[#292a2f]">
               <a href="#" className="block text-[#cb1234] font-semibold"><i className="fa-solid fa-cart-shopping mr-2"></i>35.00</a>

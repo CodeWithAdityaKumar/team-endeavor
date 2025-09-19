@@ -86,7 +86,7 @@ export default function PromoSection() {
   }, [])
 
   return (
-    <div ref={sectionRef} className="section2 w-full min-h-[100vh] bg-[#16171a] relative overflow-visible md:overflow-hidden">
+    <div ref={sectionRef} className="section2 w-full md:min-h-[100vh] bg-[#16171a] relative overflow-visible md:overflow-hidden">
       <div
         className="footer_primary w-full h-auto md:h-[65%] bg-cover relative md:absolute md:top-1/2 md:-translate-y-1/2 py-12 md:py-0"
         style={{ backgroundImage: "url('/assests/main%20image.jpg')" }}
@@ -114,7 +114,7 @@ export default function PromoSection() {
         </div>
 
         <div className="fry_pan hidden md:block">
-          <img src="/assests/section%202%20footer%20image.png" alt="fry pan" className="w-[35%] absolute right-0 rotate-90 top-[28%]" />
+          <img src="/assests/section%202%20footer%20image.png" alt="fry pan" className="w-[35%] absolute right-0 rotate-100 top-[28%]" style={{}} />
         </div>
         <div className="motion_green_chilli hidden md:block">
           <img src="/assests/green%20chilli.png" alt="green chilli" className="w-[12%] rotate-45 absolute top-[80%] left-[10%]" />

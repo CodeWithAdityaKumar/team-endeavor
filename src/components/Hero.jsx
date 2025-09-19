@@ -147,7 +147,7 @@ export default function Hero() {
         <img
           src="/assests/burger.png"
           alt="product"
-          className="block mx-auto mt-2 w-[82%] sm:w-[65%] z-[3] md:absolute md:right-[5%] md:top-[25%] md:w-[40%] md:animate-moving"
+          className="block mx-auto mt-2 w-[82%] sm:w-[65%] z-[3]  md:absolute md:right-[5%] md:top-[25%] md:w-[40%] animate-moving"
         />
       </div>
 
@@ -186,7 +186,7 @@ export default function Hero() {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias minima, praesentium deserunt tempore temporibus reprehenderit optio itaque repudiandae cupiditate.
       </p>
 
-      <div className="z-[5] md:absolute md:top-[70%] md:left-[13%] px-6 sm:px-8 mt-6 md:mt-0">
+      <div className="z-[5] md:absolute md:top-[75%] md:left-[13%] px-6 sm:px-8 mt-6 md:mt-0">
         <a
           href="#"
           className="group first no-underline text-white w-[160px] md:w-[160px] h-[48px] md:h-[50px] rounded-[50px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(203,18,52,1)_0%,rgba(134,8,31,1)_100%)] text-center inline-flex items-center justify-center shadow-btn overflow-hidden relative"
@@ -196,7 +196,7 @@ export default function Hero() {
         </a>
       </div>
 
-      <div className="z-[5] md:absolute md:top-[70%] md:left-[25%] md:translate-x-0 px-6 sm:px-8 mt-3 md:mt-0">
+      <div className="z-[5] md:absolute md:top-[75%] md:left-[25%] md:translate-x-0 px-6 sm:px-8 mt-3 md:mt-0">
         <a
           href="#"
           className="second no-underline text-white w-[160px] md:w-[160px] h-[48px] md:h-[50px] rounded-[50px] bg-transparent border border-white text-center inline-flex items-center justify-center transition duration-500 hover:bg-[#cb1234] hover:border-[#cb1234]"

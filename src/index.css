@@ -34,6 +34,12 @@
 	from { top: 25%; }
 	to { top: 20%; }
 }
+/* Mobile-friendly float using translateY (works on static/relative positioned elements) */
+@keyframes movingMobile {
+	0% { transform: translateY(0); }
+	50% { transform: translateY(-10px); }
+	100% { transform: translateY(0); }
+}
 @keyframes btnMove {
 	from { top: 36%; }
 	to { top: 32%; }
@@ -44,5 +50,6 @@
 }
 
 .animate-moving { animation: moving 5s ease-in-out infinite alternate; }
+.animate-moving-mobile { animation: movingMobile 5s ease-in-out infinite; }
 .animate-btnMove { animation: btnMove 5s ease-in-out infinite alternate; }
 .animate-pass { animation: pass .8s ease-in-out 1; }

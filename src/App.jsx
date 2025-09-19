@@ -2,6 +2,7 @@ import './App.css'
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
 import MenuSection from './components/MenuSection.jsx'
+import PromoSection from './components/PromoSection.jsx'
 
 export default function App() {
   return (
@@ -12,6 +13,8 @@ export default function App() {
       <Hero />
       {/* Menu section */}
       <MenuSection />
+      {/* Promo section */}
+      <PromoSection />
     </div>
   )
 }

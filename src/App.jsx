@@ -1,6 +1,7 @@
 import './App.css'
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
+import MenuSection from './components/MenuSection.jsx'
 
 export default function App() {
   return (
@@ -9,6 +10,8 @@ export default function App() {
       <Navbar />
       {/* Hero section */}
       <Hero />
+      {/* Menu section */}
+      <MenuSection />
     </div>
   )
 }

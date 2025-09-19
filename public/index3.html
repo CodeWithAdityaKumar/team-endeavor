@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Burger Spioszek - Tailwind Version</title>
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+	<!-- Tailwind (Play CDN) -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					fontFamily: {
+						opensans: ['"Open Sans"', 'sans-serif'],
+					},
+					boxShadow: {
+						btn: '0px 5px 10px rgba(0,0,0,1)',
+						btn2: '0px 5px 10px rgba(0,0,0,0.522)',
+						icon: '2px 10px 10px rgba(0, 0, 0, 0.549)'
+					},
+					keyframes: {
+						moving: {
+							from: { top: '25%' },
+							to: { top: '20%' },
+						},
+						btnMove: {
+							from: { top: '36%' },
+							to: { top: '32%' },
+						},
+						pass: {
+							from: { left: '-10%', top: '-80%' },
+							to: { left: '150%', top: '-80%' },
+						},
+					},
+					animation: {
+						moving: 'moving 5s ease-in-out infinite alternate',
+						btnMove: 'btnMove 5s ease-in-out infinite alternate',
+						pass: 'pass .8s ease-in-out 1',
+					},
+				},
+			},
+		}
+	</script>
+
+	<!-- Custom base layer for scrollbar styling (to match original) -->
+	<style type="text/tailwindcss">
+		@layer base {
+			* { box-sizing: border-box; }
+			::-webkit-scrollbar { width: 5px; }
+			::-webkit-scrollbar-track { background-color: #cb1234; }
+			::-webkit-scrollbar-thumb { background-color: #880019; border-radius: 50px; }
+		}
+
+		/* Utility helpers */
+		@layer utilities {
+			.line-clamp-2 {
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 2;
+				line-clamp: 2;
+				overflow: hidden;
+			}
+			.line-clamp-none {
+				overflow: visible;
+				display: block;
+				-webkit-line-clamp: unset;
+				line-clamp: unset;
+			}
+		}
+	</style>
+</head>
+<body class="overflow-x-hidden font-opensans">
+	<div id="main" class="relative bg-[#101116]">
+		<!-- Navbar -->
+		<div class="w-full h-[80px] md:h-[120px] bg-transparent absolute flex items-center justify-between px-4 md:px-[70px] z-[200]">
+			<div id="logo"><img src="./assests/logo.png" alt="logo" class="w-[45%] md:w-2/5" /></div>
+			<div class="listing hidden md:block">
+				<ul class="list-none">
+					<li class="inline-block mx-2 md:mx-[18px]">
+						<a href="#" class="no-underline text-white transition duration-500 font-semibold hover:text-[#cb1234]">Home</a>
+					</li>
+					<li class="inline-block mx-2 md:mx-[18px]">
+						<a href="#" class="no-underline text-white transition duration-500 font-semibold hover:text-[#cb1234]">Menu</a>
+					</li>
+					<li class="inline-block mx-2 md:mx-[18px]">
+						<a href="#" class="no-underline text-white transition duration-500 font-semibold hover:text-[#cb1234]">O nass</a>
+					</li>
+
+					<!-- 4th item with special styling -->
+					<li class="inline-block mx-2 md:mx-[18px] relative before:content-[''] before:w-[44px] before:h-[1px] before:bg-[#cb1234] before:absolute before:bottom-[-10%] before:left-[45%] after:content-[''] after:w-[1px] after:h-[45px] after:bg-[#cb1234] after:absolute after:bottom-[-100%] after:left-[135%]">
+						<a href="#" class="no-underline text-[#cb1234] font-semibold relative pb-[5px]"><i class="fa-solid fa-cart-shopping mr-[5px]"></i> 35.00</a>
+						<p class="text-[12px] text-[#b6b6b6] absolute top-[130%] left-[35%] w-full">| product</p>
+					</li>
+
+					<!-- 5th item with special styling -->
+					<li class="inline-block mx-2 md:mx-[18px] relative after:content-[''] after:w-[1px] after:h-[45px] after:bg-[#cb1234] after:absolute after:bottom-[-100%] after:left-[110%]">
+						<a href="#" class="no-underline text-white font-semibold"><i class="fa-solid fa-cart-shopping text-[#cb1234] mr-[5px]"></i> Poniedzlatek- platek</a>
+						<p class="text-[12px] text-[#b6b6b6] absolute top-[130%] left-[18%] w-full">ad 12:00 to 23.00</p>
+					</li>
+
+					<!-- 6th item with special styling -->
+					<li class="inline-block mx-2 md:mx-[18px] relative">
+						<a href="#" class="no-underline text-white font-semibold"><i class="fa-solid fa-phone text-[#cb1234] mr-[5px]"></i> +48 123 456 789</a>
+						<p class="text-[12px] text-[#cb1234] absolute top-[130%] left-[22%] w-full">Dial up</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Hero -->
+	<div class="herobox w-full h-[120vh] md:h-[110vh] bg-cover relative overflow-hidden" style="background-image: url('./assests/main%20image.jpg');">
+			<!-- overlay equivalent of ::before -->
+			<div class="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0)_-34%,rgba(0,0,0,0.2105)_0%,rgba(0,0,0,0.63069)_100%)]"></div>
+
+			<div class="fire_overlay absolute inset-0">
+				<img src="./assests/Fire Particles.png" alt="fire" class="w-full h-full object-cover object-top" />
+			</div>
+
+			<div class="glow w-[3000px] h-[3000px] bg-[radial-gradient(circle,rgba(0,0,0,0)_-34%,rgba(255,85,0,1)_0%,rgba(255,166,0,0)_39%)] rounded-full absolute right-[-72%] top-[-50%]"></div>
+
+			<div class="product_image">
+				<img src="./assests/burger.png" alt="product" class="absolute right-[2%] md:right-[5%] top-[38%] md:top-[25%] w-[75%] sm:w-[60%] md:w-[40%] z-[3] animate-moving" />
+			</div>
+
+			<div class="chilli hidden sm:block">
+				<img src="./assests/red chilli.png" alt="chilli" class="absolute w-[22%] md:w-[18%] right-[2%] md:right-[5%] top-[5%] md:top-[8%] [transform:rotateX(10deg)_rotateY(200deg)] [transform-origin:center]" />
+			</div>
+
+			<div class="motionChilli hidden sm:block">
+				<img src="./assests/motion%20blur%20red%20chilli.png" alt="motion chilli" class="absolute w-[26%] md:w-[22%] right-[40%] md:right-[50%] top-[70%] md:top-[65%]" />
+			</div>
+
+			<div class="tomato hidden sm:block">
+				<img src="./assests/tomato.png" alt="tomato" class="absolute w-[24%] md:w-[18%] left-0 top-[10%] z-[6]" />
+			</div>
+
+			<div class="motionTomato hidden sm:block">
+				<img src="./assests/motion%20tomato.png" alt="motion tomato" class="absolute w-[30%] md:w-[25%] left-[-18%] md:left-[-12%] top-[65%] md:top-[55%] opacity-80 [transform-origin:center] [transform:scaleY(1.2)]" />
+			</div>
+
+			<h1 class="text-white absolute z-[5] top-[18%] md:top-[30%] left-[7%] md:left-[13%] text-[9vw] md:text-[6vw] w-[80%] md:w-[30%] leading-[60px] md:leading-[95px] font-bold">Burger Spiozek</h1>
+			<p class="absolute top-[35%] md:top-[58%] left-[7%] md:left-[13%] z-[5] text-[#7f7f7f] w-[85%] md:w-[33%] tracking-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias minima, praesentium deserunt tempore temporibus reprehenderit optio itaque repudiandae cupiditate.</p>
+
+			<a href="#" class="group first inline-block absolute z-[5] top-[50%] md:top-[70%] left-[7%] md:left-[13%] no-underline text-white w-[150px] md:w-[160px] h-[46px] md:h-[50px] rounded-[50px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(203,18,52,1)_0%,rgba(134,8,31,1)_100%)] text-center flex items-center justify-center shadow-btn overflow-hidden relative">
+				Order Now <i class="fa-solid fa-cart-shopping text-[12px] ml-[10px]"></i>
+				<span class="pointer-events-none before:absolute before:content-[''] before:w-[10px] before:h-[120px] before:bg-white before:rotate-45 before:top-[-80%] before:left-[-20%] group-hover:before:animate-pass"></span>
+			</a>
+
+			<a href="#" class="second inline-block absolute z-[5] top-[50%] md:top-[70%] left-[46%] md:left-[25%] -translate-x-1/2 md:translate-x-0 no-underline text-white w-[150px] md:w-[160px] h-[46px] md:h-[50px] rounded-[50px] bg-transparent border border-white text-center flex items-center justify-center transition duration-500 hover:bg-[#cb1234] hover:border-[#cb1234]">
+				Explore Now <i class="fa-solid fa-arrow-right text-[12px] ml-[10px]"></i>
+			</a>
+
+			<a href="#" class="third inline-block absolute top-[28%] md:top-[36%] left-[55%] z-[5] no-underline text-white w-[140px] md:w-[160px] h-[46px] md:h-[50px] rounded-[50px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(255,0,47,1)_0%,rgba(135,0,25,1)_100%)] text-center flex items-center justify-center shadow-btn2 animate-btnMove">
+				26.69xl
+			</a>
+		</div>
+
+		<!-- Section 1 -->
+		<div class="section1 w-full min-h-[180vh] md:h-[180vh] bg-[#16171a] px-4 md:px-[100px] relative">
+			<h1 class="text-white text-[9vw] md:text-[3vw] absolute top-[5%] md:top-[8%]">MENU</h1>
+
+			<div class="menu_btn w-full md:w-[55%] h-auto md:h-[80px] absolute top-[12%] md:top-[13%] flex flex-wrap gap-3 md:gap-0 md:flex-nowrap items-center justify-start md:justify-between">
+				<a href="#" class="inline-block no-underline text-[#828282] w-[46%] sm:w-[160px] h-[46px] md:h-[50px] rounded-[50px] bg-[#343434] text-center flex items-center justify-center overflow-hidden">Startery</a>
+				<a href="#" class="inline-block no-underline text-white w-[46%] sm:w-[160px] h-[46px] md:h-[50px] rounded-[50px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(203,18,52,1)_0%,rgba(134,8,31,1)_100%)] text-center flex items-center justify-center overflow-hidden">Burgery</a>
+				<a href="#" class="inline-block no-underline text-[#828282] w-[46%] sm:w-[160px] h-[46px] md:h-[50px] rounded-[50px] bg-[#343434] text-center flex items-center justify-center overflow-hidden">Satoshi</a>
+				<a href="#" class="inline-block no-underline text-[#828282] w-[46%] sm:w-[160px] h-[46px] md:h-[50px] rounded-[50px] bg-[#343434] text-center flex items-center justify-center overflow-hidden">Ziberia</a>
+				<a href="#" class="inline-block no-underline text-[#828282] w-[46%] sm:w-[160px] h-[46px] md:h-[50px] rounded-[50px] bg-[#343434] text-center flex items-center justify-center overflow-hidden">Poutine</a>
+			</div>
+
+			<div class="leaves hidden md:block">
+				<img src="./assests/leaves.png" alt="leaves" class="w-[16%] absolute right-[1%] top-[15%] rotate-[30deg]" />
+			</div>
+
+			<div class="gallery w-full md:w-[85%] md:h-[70%] absolute top-[24%] md:top-[22%] flex flex-col gap-6 md:gap-0 justify-between z-[52]">
+				<!-- Row 1 -->
+				<div class="row_1 w-full h-auto md:h-[48%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 md:flex md:justify-between">
+					<!-- Card -->
+					<div class="col_1 w-full md:w-[23.5%] h-[360px] md:h-full bg-cover bg-center rounded-[10px] relative overflow-hidden" style="background-image: url('./assests/main%20image.jpg'); transform-origin: bottom right;">
+						<div class="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0)_-34%,rgba(135,0,25,0)_0%,rgba(0,0,0,0.6783)_100%)]"></div>
+						<div class="price_tag"><p class="text-[#d3d3d3] font-bold text-[1.4vw] absolute top-[5%] left-[5%] z-[20]">26.90 zt</p></div>
+						<img src="./assests/menu%20item.png" alt="menu item" class="w-[160px] md:w-[260px] z-[10] absolute top-[16%] md:top-[20%] left-1/2 -translate-x-1/2" />
+						<h2 class="text-[#d3d3d3] absolute bottom-[28%] left-[5%] text-[18px] md:text-[22px] z-[20]">Burger Czarnuszek</h2>
+						<div class="sub_info"><p class="text-[#808080] text-[11px] w-[90%] absolute bottom-[17%] left-[5%] z-[20] line-clamp-2 md:line-clamp-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus non quod ipsam, voluptatum assumenda deleniti odit reiciendis voluptate. Totam, ut!</p></div>
+						<div class="counter w-[90px] h-[30px] bg-[#212121] absolute rounded-[50px] bottom-[5%] left-[5%] overflow-hidden text-white flex items-center justify-center z-[20]">
+							<span class="cursor-pointer text-[#b2b2b2]">-</span>
+							<p class="text-white font-bold px-[20px]">1</p>
+							<span class="cursor-pointer text-[#b2b2b2]">+</span>
+						</div>
+						<div class="cart_btn w-[60px] h-[30px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(115,212,0,1)_0%,rgba(53,116,0,1)_100%)] rounded-[50px] absolute bottom-[5%] left-[38%] text-white flex items-center justify-center cursor-pointer z-[20]">
+							<i class="fa-solid fa-cart-shopping"></i>
+						</div>
+					</div>
+
+					<div class="col_1 w-full md:w-[23.5%] h-[360px] md:h-full bg-cover bg-center rounded-[10px] relative overflow-hidden" style="background-image: url('./assests/main%20image.jpg'); transform-origin: bottom right;">
+						<div class="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0)_-34%,rgba(135,0,25,0)_0%,rgba(0,0,0,0.6783)_100%)]"></div>
+						<div class="price_tag"><p class="text-[#d3d3d3] font-bold text-[5vw] md:text-[1.4vw] absolute top-[5%] left-[5%] z-[20]">26.90 zt</p></div>
+						<img src="./assests/menu%20item.png" alt="menu item" class="w-[160px] md:w-[260px] z-[10] absolute top-[16%] md:top-[20%] left-1/2 -translate-x-1/2" />
+						<h2 class="text-[#d3d3d3] absolute bottom-[28%] left-[5%] text-[18px] md:text-[22px] z-[20]">Burger Czarnuszek</h2>
+						<div class="sub_info"><p class="text-[#808080] text-[11px] w-[90%] absolute bottom-[17%] left-[5%] z-[20] line-clamp-2 md:line-clamp-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus non quod ipsam, voluptatum assumenda deleniti odit reiciendis voluptate. Totam, ut!</p></div>
+						<div class="counter w-[90px] h-[30px] bg-[#212121] absolute rounded-[50px] bottom-[5%] left-[5%] overflow-hidden text-white flex items-center justify-center z-[20]">
+							<span class="cursor-pointer text-[#b2b2b2]">-</span>
+							<p class="text-white font-bold px-[20px]">1</p>
+							<span class="cursor-pointer text-[#b2b2b2]">+</span>
+						</div>
+						<div class="cart_btn w-[60px] h-[30px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(115,212,0,1)_0%,rgba(53,116,0,1)_100%)] rounded-[50px] absolute bottom-[5%] left-[38%] text-white flex items-center justify-center cursor-pointer z-[20]">
+							<i class="fa-solid fa-cart-shopping"></i>
+						</div>
+					</div>
+
+					<div class="col_1 w-full md:w-[23.5%] h-[360px] md:h-full bg-cover bg-center rounded-[10px] relative overflow-hidden" style="background-image: url('./assests/main%20image.jpg'); transform-origin: bottom right;">
+						<div class="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0)_-34%,rgba(135,0,25,0)_0%,rgba(0,0,0,0.6783)_100%)]"></div>
+						<div class="price_tag"><p class="text-[#d3d3d3] font-bold text-[5vw] md:text-[1.4vw] absolute top-[5%] left-[5%] z-[20]">26.90 zt</p></div>
+						<img src="./assests/menu%20item.png" alt="menu item" class="w-[160px] md:w-[260px] z-[10] absolute top-[16%] md:top-[20%] left-1/2 -translate-x-1/2" />
+						<h2 class="text-[#d3d3d3] absolute bottom-[28%] left-[5%] text-[18px] md:text-[22px] z-[20]">Burger Czarnuszek</h2>
+						<div class="sub_info"><p class="text-[#808080] text-[11px] w-[90%] absolute bottom-[17%] left-[5%] z-[20] line-clamp-2 md:line-clamp-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus non quod ipsam, voluptatum assumenda deleniti odit reiciendis voluptate. Totam, ut!</p></div>
+						<div class="counter w-[90px] h-[30px] bg-[#212121] absolute rounded-[50px] bottom-[5%] left-[5%] overflow-hidden text-white flex items-center justify-center z-[20]">
+							<span class="cursor-pointer text-[#b2b2b2]">-</span>
+							<p class="text-white font-bold px-[20px]">1</p>
+							<span class="cursor-pointer text-[#b2b2b2]">+</span>
+						</div>
+						<div class="cart_btn w-[60px] h-[30px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(115,212,0,1)_0%,rgba(53,116,0,1)_100%)] rounded-[50px] absolute bottom-[5%] left-[38%] text-white flex items-center justify-center cursor-pointer z-[20]">
+							<i class="fa-solid fa-cart-shopping"></i>
+						</div>
+					</div>
+
+					<div class="col_1 w-full md:w-[23.5%] h-[360px] md:h-full bg-cover bg-center rounded-[10px] relative overflow-hidden" style="background-image: url('./assests/main%20image.jpg'); transform-origin: bottom left;">
+						<div class="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0)_-34%,rgba(135,0,25,0)_0%,rgba(0,0,0,0.6783)_100%)]"></div>
+						<div class="price_tag"><p class="text-[#d3d3d3] font-bold text-[5vw] md:text-[1.4vw] absolute top-[5%] left-[5%] z-[20]">26.90 zt</p></div>
+						<img src="./assests/menu%20item.png" alt="menu item" class="w-[160px] md:w-[260px] z-[10] absolute top-[16%] md:top-[20%] left-1/2 -translate-x-1/2" />
+						<h2 class="text-[#d3d3d3] absolute bottom-[28%] left-[5%] text-[18px] md:text-[22px] z-[20]">Burger Czarnuszek</h2>
+						<div class="sub_info"><p class="text-[#808080] text-[11px] w-[90%] absolute bottom-[17%] left-[5%] z-[20] line-clamp-2 md:line-clamp-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus non quod ipsam, voluptatum assumenda deleniti odit reiciendis voluptate. Totam, ut!</p></div>
+						<div class="counter w-[90px] h-[30px] bg-[#212121] absolute rounded-[50px] bottom-[5%] left-[5%] overflow-hidden text-white flex items-center justify-center z-[20]">
+							<span class="cursor-pointer text-[#b2b2b2]">-</span>
+							<p class="text-white font-bold px-[20px]">1</p>
+							<span class="cursor-pointer text-[#b2b2b2]">+</span>
+						</div>
+						<div class="cart_btn w-[60px] h-[30px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(115,212,0,1)_0%,rgba(53,116,0,1)_100%)] rounded-[50px] absolute bottom-[5%] left-[38%] text-white flex items-center justify-center cursor-pointer z-[20]">
+							<i class="fa-solid fa-cart-shopping"></i>
+						</div>
+					</div>
+				</div>
+
+				<!-- Row 2 -->
+				<div class="row_1 w-full h-auto md:h-[48%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 md:flex md:justify-between">
+					<div class="col_1 w-full md:w-[23.5%] h-[360px] md:h-full bg-cover bg-center rounded-[10px] relative overflow-hidden" style="background-image: url('./assests/main%20image.jpg'); transform-origin: bottom right;">
+						<div class="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0)_-34%,rgba(135,0,25,0)_0%,rgba(0,0,0,0.6783)_100%)]"></div>
+						<div class="price_tag"><p class="text-[#d3d3d3] font-bold text-[5vw] md:text-[1.4vw] absolute top-[5%] left-[5%] z-[20]">26.90 zt</p></div>
+						<img src="./assests/menu%20item.png" alt="menu item" class="w-[160px] md:w-[260px] z-[10] absolute top-[16%] md:top-[20%] left-1/2 -translate-x-1/2" />
+						<h2 class="text-[#d3d3d3] absolute bottom-[28%] left-[5%] text-[18px] md:text-[22px] z-[20]">Burger Czarnuszek</h2>
+						<div class="sub_info"><p class="text-[#808080] text-[11px] w-[90%] absolute bottom-[17%] left-[5%] z-[20] line-clamp-2 md:line-clamp-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus non quod ipsam, voluptatum assumenda deleniti odit reiciendis voluptate. Totam, ut!</p></div>
+						<div class="counter w-[90px] h-[30px] bg-[#212121] absolute rounded-[50px] bottom-[5%] left-[5%] overflow-hidden text-white flex items-center justify-center z-[20]">
+							<span class="cursor-pointer text-[#b2b2b2]">-</span>
+							<p class="text-white font-bold px-[20px]">1</p>
+							<span class="cursor-pointer text-[#b2b2b2]">+</span>
+						</div>
+						<div class="cart_btn w-[60px] h-[30px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(115,212,0,1)_0%,rgba(53,116,0,1)_100%)] rounded-[50px] absolute bottom-[5%] left-[38%] text-white flex items-center justify-center cursor-pointer z-[20]">
+							<i class="fa-solid fa-cart-shopping"></i>
+						</div>
+					</div>
+
+					<div class="col_1 w-full md:w-[23.5%] h-[360px] md:h-full bg-cover bg-center rounded-[10px] relative overflow-hidden" style="background-image: url('./assests/main%20image.jpg'); transform-origin: bottom right;">
+						<div class="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0)_-34%,rgba(135,0,25,0)_0%,rgba(0,0,0,0.6783)_100%)]"></div>
+						<div class="price_tag"><p class="text-[#d3d3d3] font-bold text-[5vw] md:text-[1.4vw] absolute top-[5%] left-[5%] z-[20]">26.90 zt</p></div>
+						<img src="./assests/menu%20item.png" alt="menu item" class="w-[160px] md:w-[260px] z-[10] absolute top-[16%] md:top-[20%] left-1/2 -translate-x-1/2" />
+						<h2 class="text-[#d3d3d3] absolute bottom-[28%] left-[5%] text-[18px] md:text-[22px] z-[20]">Burger Czarnuszek</h2>
+						<div class="sub_info"><p class="text-[#808080] text-[11px] w-[90%] absolute bottom-[17%] left-[5%] z-[20] line-clamp-2 md:line-clamp-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus non quod ipsam, voluptatum assumenda deleniti odit reiciendis voluptate. Totam, ut!</p></div>
+						<div class="counter w-[90px] h-[30px] bg-[#212121] absolute rounded-[50px] bottom-[5%] left-[5%] overflow-hidden text-white flex items-center justify-center z-[20]">
+							<span class="cursor-pointer text-[#b2b2b2]">-</span>
+							<p class="text-white font-bold px-[20px]">1</p>
+							<span class="cursor-pointer text-[#b2b2b2]">+</span>
+						</div>
+						<div class="cart_btn w-[60px] h-[30px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(115,212,0,1)_0%,rgba(53,116,0,1)_100%)] rounded-[50px] absolute bottom-[5%] left-[38%] text-white flex items-center justify-center cursor-pointer z-[20]">
+							<i class="fa-solid fa-cart-shopping"></i>
+						</div>
+					</div>
+
+					<div class="col_1 w-full md:w-[23.5%] h-[360px] md:h-full bg-cover bg-center rounded-[10px] relative overflow-hidden" style="background-image: url('./assests/main%20image.jpg'); transform-origin: bottom right;">
+						<div class="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0)_-34%,rgba(135,0,25,0)_0%,rgba(0,0,0,0.6783)_100%)]"></div>
+						<div class="price_tag"><p class="text-[#d3d3d3] font-bold text-[5vw] md:text-[1.4vw] absolute top-[5%] left-[5%] z-[20]">26.90 zt</p></div>
+						<img src="./assests/menu%20item.png" alt="menu item" class="w-[160px] md:w-[260px] z-[10] absolute top-[16%] md:top-[20%] left-1/2 -translate-x-1/2" />
+						<h2 class="text-[#d3d3d3] absolute bottom-[28%] left-[5%] text-[18px] md:text-[22px] z-[20]">Burger Czarnuszek</h2>
+						<div class="sub_info"><p class="text-[#808080] text-[11px] w-[90%] absolute bottom-[17%] left-[5%] z-[20] line-clamp-2 md:line-clamp-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus non quod ipsam, voluptatum assumenda deleniti odit reiciendis voluptate. Totam, ut!</p></div>
+						<div class="counter w-[90px] h-[30px] bg-[#212121] absolute rounded-[50px] bottom-[5%] left-[5%] overflow-hidden text-white flex items-center justify-center z-[20]">
+							<span class="cursor-pointer text-[#b2b2b2]">-</span>
+							<p class="text-white font-bold px-[20px]">1</p>
+							<span class="cursor-pointer text-[#b2b2b2]">+</span>
+						</div>
+						<div class="cart_btn w-[60px] h-[30px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(115,212,0,1)_0%,rgba(53,116,0,1)_100%)] rounded-[50px] absolute bottom-[5%] left-[38%] text-white flex items-center justify-center cursor-pointer z-[20]">
+							<i class="fa-solid fa-cart-shopping"></i>
+						</div>
+					</div>
+
+					<div class="col_1 w-full md:w-[23.5%] h-[360px] md:h-full bg-cover bg-center rounded-[10px] relative overflow-hidden" style="background-image: url('./assests/main%20image.jpg'); transform-origin: bottom left;">
+						<div class="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0)_-34%,rgba(135,0,25,0)_0%,rgba(0,0,0,0.6783)_100%)]"></div>
+						<div class="price_tag"><p class="text-[#d3d3d3] font-bold text-[5vw] md:text-[1.4vw] absolute top-[5%] left-[5%] z-[20]">26.90 zt</p></div>
+						<img src="./assests/menu%20item.png" alt="menu item" class="w-[160px] md:w-[260px] z-[10] absolute top-[16%] md:top-[20%] left-1/2 -translate-x-1/2" />
+						<h2 class="text-[#d3d3d3] absolute bottom-[28%] left-[5%] text-[18px] md:text-[22px] z-[20]">Burger Czarnuszek</h2>
+						<div class="sub_info"><p class="text-[#808080] text-[11px] w-[90%] absolute bottom-[17%] left-[5%] z-[20] line-clamp-2 md:line-clamp-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus non quod ipsam, voluptatum assumenda deleniti odit reiciendis voluptate. Totam, ut!</p></div>
+						<div class="counter w-[90px] h-[30px] bg-[#212121] absolute rounded-[50px] bottom-[5%] left-[5%] overflow-hidden text-white flex items-center justify-center z-[20]">
+							<span class="cursor-pointer text-[#b2b2b2]">-</span>
+							<p class="text-white font-bold px-[20px]">1</p>
+							<span class="cursor-pointer text-[#b2b2b2]">+</span>
+						</div>
+						<div class="cart_btn w-[60px] h-[30px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(115,212,0,1)_0%,rgba(53,116,0,1)_100%)] rounded-[50px] absolute bottom-[5%] left-[38%] text-white flex items-center justify-center cursor-pointer z-[20]">
+							<i class="fa-solid fa-cart-shopping"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<a href="#" class="footer_btn inline-block w-[180px] h-[50px] border border-gray-500 rounded-[50px] absolute bottom-2 md:bottom-0 left-1/2 -translate-x-1/2 no-underline text-gray-500 flex items-center justify-center transition duration-500 font-extrabold hover:bg-[#cb1234] hover:text-white">Watch More</a>
+
+			<div class="mochilli hidden md:block"><img src="./assests/motion%20blur%20red%20chilli.png" alt="motion chilli" class="w-[20%] absolute bottom-[5%] left-[-8%] -rotate-90" /></div>
+			<div class="motomato hidden md:block"><img src="./assests/motion%20tomato.png" alt="motion tomato" class="w-[22%] absolute right-[-5%] bottom-[-10%] z-[50]" /></div>
+			<div class="fire_particles hidden md:block"><img src="./assests/Fire%20Particles.png" alt="fire particles" class="w-1/2 absolute bottom-[-40%] left-[-30%] z-[50]" /></div>
+		</div>
+
+		<!-- Section 2 -->
+		<div class="section2 w-full min-h-[100vh] bg-[#16171a] relative overflow-visible md:overflow-hidden">
+			<div class="footer_primary w-full h-auto md:h-[65%] bg-cover relative md:absolute md:top-1/2 md:-translate-y-1/2 py-12 md:py-0" style="background-image: url('./assests/main%20image.jpg');">
+				<div class="heading_text">
+					<h2 class="text-white text-[8vw] md:text-[35px] font-normal relative md:absolute md:left-[10%] md:top-[15%] pl-[6%] pt-[6%] md:pl-0 md:pt-0">Sprobuj naszych</h2>
+					<h1 class="text-white text-[10vw] md:text-[66px] w-[80%] md:w-[20%] leading-[60px] md:leading-[70px] relative md:absolute md:left-[10%] md:top-[25%] pl-[6%] mt-2 md:pl-0">Wypasionych satatek</h1>
+				</div>
+
+				<div class="button_section w-[88%] md:w-[30%] h-auto md:h-[20%] relative md:absolute md:top-[60%] md:left-[10%] flex flex-col md:flex-row gap-4 md:gap-0 items-center justify-between mt-6 md:mt-0 pl-[6%] md:pl-0">
+					<div class="btn_1 w-full md:w-[48%] h-[90px] md:h-full flex items-center relative">
+						<i class="fa-solid fa-fish-fins text-white text-[32px] w-[70px] h-[70px] rounded-[50px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(255,0,47,1)_0%,rgba(198,0,36,1)_100%)] shadow-icon flex items-center justify-center"></i>
+						<h2 class="text-white text-[16px] md:text-[18px] absolute left-[35%] top-[22%] w-[80%]">180g miesa</h2>
+						<p class="text-gray-400 w-[80%] text-[12px] absolute left-[35%] bottom-[12%]">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+					</div>
+					<div class="btn_1 w-full md:w-[48%] h-[90px] md:h-full flex items-center relative">
+						<i class="fa-solid fa-carrot text-white text-[32px] w-[70px] h-[70px] rounded-[50px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(255,0,47,1)_0%,rgba(198,0,36,1)_100%)] shadow-icon flex items-center justify-center"></i>
+						<h2 class="text-white text-[16px] md:text-[18px] absolute left-[35%] top-[22%] w-[80%]">Swieze skfadniki</h2>
+						<p class="text-gray-400 w-[80%] text-[12px] absolute left-[35%] bottom-[12%]">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+					</div>
+				</div>
+
+				<div class="fry_pan hidden md:block"><img src="./assests/section%202%20footer%20image.png" alt="fry pan" class="w-[35%] absolute right-0 rotate-90 top-[28%]" /></div>
+				<div class="motion_green_chilli hidden md:block"><img src="./assests/green%20chilli.png" alt="green chilli" class="w-[12%] rotate-45 absolute top-[80%] left-[10%]" /></div>
+				<div class="onion_with_chilli hidden md:block"><img src="./assests/onion%20and%20chilli.png" alt="onion and chilli" class="w-[20%] absolute right-[19%] top-[-20%] -rotate-[20deg]" /></div>
+			</div>
+
+			<div class="fire_particles_section2 hidden md:block"><img src="./assests/Fire%20Particles.png" alt="fire particles" class="z-[50] absolute right-[-25%] top-[30%] w-[32%]" /></div>
+		</div>
+	</div>
+
+	<!-- JS Libraries to match original -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@beta/bundled/locomotive-scroll.min.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>

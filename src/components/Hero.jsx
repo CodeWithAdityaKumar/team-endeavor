@@ -71,7 +71,7 @@ export default function Hero() {
       // Product image and chilli
       gsap.from('.product_image img', {
         x: '100%',
-        delay: 1.2,
+        delay: .8,
         duration: 1,
         opacity: 0,
         scrollTrigger: {
@@ -93,7 +93,7 @@ export default function Hero() {
       // Price pill
       gsap.from('.herobox a.third', {
         x: '200%',
-        delay: 1.2,
+        delay: .8,
         duration: 1,
         opacity: 0,
         scrollTrigger: {

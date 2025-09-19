@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.0.1/remixicon.min.css"
+		integrity="sha512-dTsohxprpcruDm4sjU92K0/Gf1nTKVVskNHLOGMqxmokBSkfOAyCzYSB6+5Z9UlDafFRpy5xLhvpkOImeFbX6A=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	/>
+	<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<title>Wahlburgers</title>
+	<script>
+		tailwind.config = {
+			theme: { extend: {} },
+			corePlugins: {},
+			plugins: []
+		}
+	</script>
+</head>
+<body class="w-screen h-screen overflow-hidden grid place-content-center text-black" style="font-family: 'Lilita One', sans-serif;">
+	<main class="h-screen w-screen relative after:content-[''] after:absolute after:bg-[#ffc535] after:h-full after:w-[41%] after:right-0 after:top-0 after:-z-10">
+
+
+		<section class="w-full h-full pl-[150px] pt-[60px] relative">
+			<div class="cover-img absolute top-[70px] left-1/2 translate-x-[-10%] h-full">
+				<div class="layers w-[380px] h-full relative scale-[1.2]">
+					<div class="layer layer-4 absolute w-full top-[calc(100%-400px)] -z-[3]">
+						<img src="images/layer-4.png" alt="" class="w-full object-contain" />
+					</div>
+					<div class="layer layer-3 absolute w-full top-[calc(100%-460px)] -z-[2]">
+						<img src="images/layer-3.png" alt="" class="w-full object-contain" />
+					</div>
+					<div class="layer layer-2 absolute w-full top-[calc(100%-510px)] -z-[1]">
+						<img src="images/layer-2.png" alt="" class="w-full object-contain" />
+					</div>
+					<div class="layer layer-1 absolute w-full top-[calc(100%-600px)] z-[1] scale-[1.2]">
+						<img src="images/layer-1.png" alt="" class="w-full object-contain" />
+					</div>
+				</div>
+				<div class="nutrition absolute z-10 flex top-[20px] right-[-150px] gap-[5px]">
+					<div class="calories bg-[url('images/frame.png')] bg-no-repeat bg-contain h-[200px] w-[80px] text-center text-[12px] leading-[1.3] pt-[15px]">
+						Calories <br />
+						<small class="opacity-50">Kcal</small> <br />
+						<span class="text-[#ef420e] text-[14px]">1370</span>
+					</div>
+					<div class="calories bg-[url('images/frame.png')] bg-no-repeat bg-contain h-[200px] w-[80px] text-center text-[12px] leading-[1.3] pt-[15px]">
+						Fat <br />
+						<small class="opacity-50">g</small> <br />
+						<span class="text-[#ef420e] text-[14px]">93</span>
+					</div>
+					<div class="calories bg-[url('images/frame.png')] bg-no-repeat bg-contain h-[200px] w-[80px] text-center text-[12px] leading-[1.3] pt-[15px]">
+						Protein <br />
+						<small class="opacity-50">g</small> <br />
+						<span class="text-[#ef420e] text-[14px]">85</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		</main>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+		var tl = gsap.timeline();
+		tl.from(".layer-3, .layer-4", {
+			y: 200,
+			opacity: 0,
+			stagger: -0.25,
+			duration: 0.5,
+		});
+		tl.from(
+			".layer-2, .layer-1",
+			{
+				y: -200,
+				opacity: 0,
+				stagger: 0.25,
+				duration: 0.5,
+			}
+		);
+		tl.from(".calories", {
+			y: 100,
+			opacity: 0,
+			stagger: 0.2,
+		});
+	</script>
+</body>
+</html>

@@ -3,15 +3,118 @@
   Includes the MENU header, category buttons, decorative leaves, and an 8-card gallery using MenuCard.
 */
 
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import MenuCard from './MenuCard'
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function MenuSection() {
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    if (!sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.section1 h1', {
+        y: 50,
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.section1 h1',
+          start: '0% 80%',
+          scrub: 0.5,
+        },
+      })
+
+      gsap.from('.section1 .menu_btn', {
+        y: 50,
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.section1 .menu_btn',
+          start: '0% 80%',
+          scrub: 1,
+        },
+      })
+
+      gsap.from('.section1 .leaves img', {
+        y: '50%',
+        duration: 2,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.section1 .leaves img',
+          scrub: 1,
+        },
+      })
+
+      gsap.from('.section1 .row_1 .col_1:nth-child(1)', {
+        y: '20%',
+        duration: 2,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.section1 .row_1 .col_1:nth-child(1)',
+          toggleActions: 'play stop reverse reset',
+        },
+      })
+      gsap.from('.section1 .row_1 .col_1:nth-child(2)', {
+        y: '50%',
+        duration: 2,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.section1 .row_1 .col_1:nth-child(2)',
+          toggleActions: 'play stop reverse reset',
+        },
+      })
+      gsap.from('.section1 .row_1 .col_1:nth-child(3)', {
+        y: '65%',
+        duration: 2,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.section1 .row_1 .col_1:nth-child(3)',
+          toggleActions: 'play stop reverse reset',
+        },
+      })
+      gsap.from('.section1 .row_1 .col_1:nth-child(4)', {
+        y: '30%',
+        duration: 2,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.section1 .row_1 .col_1:nth-child(4)',
+          toggleActions: 'play stop reverse reset',
+        },
+      })
+
+      gsap.from('.section1 .mochilli img', {
+        x: '-50%',
+        duration: 1.5,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.section1 .mochilli img',
+          scrub: 0.5,
+        },
+      })
+
+      gsap.from('.section1 .motomato img', {
+        x: '50%',
+        duration: 1.5,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.section1 .motomato img',
+          scrub: 0.5,
+        },
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   const bg = "/assests/main%20image.jpg"
   const item = "/assests/menu%20item.png"
   // cards will be data-driven later if needed
 
   return (
-    <div className="section1 w-full min-h-[180vh] md:h-[180vh] bg-[#16171a] px-4 md:px-[100px] relative">
+    <div ref={sectionRef} className="section1 w-full min-h-[180vh] md:h-[180vh] bg-[#16171a] px-4 md:px-[100px] relative">
       <h1 className="text-white text-[9vw] md:text-[3vw] absolute top-[5%] md:top-[8%]">MENU</h1>
 
       {/* Category buttons */}
@@ -20,7 +123,7 @@ export default function MenuSection() {
           <a
             key={label}
             href="#"
-            className={`inline-block no-underline ${idx===1 ? 'text-white bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(203,18,52,1)_0%,rgba(134,8,31,1)_100%)]' : 'text-[#828282] bg-[#343434]'} w-[46%] sm:w-[160px] h-[46px] md:h-[50px] rounded-[50px] text-center flex items-center justify-center overflow-hidden`}
+            className={`flex no-underline ${idx===1 ? 'text-white bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(203,18,52,1)_0%,rgba(134,8,31,1)_100%)]' : 'text-[#828282] bg-[#343434]'} w-[46%] sm:w-[160px] h-[46px] md:h-[50px] rounded-[50px] text-center flex items-center justify-center overflow-hidden`}
           >
             {label}
           </a>

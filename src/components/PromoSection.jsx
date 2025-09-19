@@ -3,9 +3,90 @@
   Background uses the same main image with overlaying content, headings, buttons, and decorative images.
 */
 
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
 export default function PromoSection() {
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    if (!sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.onion_with_chilli img', {
+        scale: 0,
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.onion_with_chilli img',
+          start: 'top 100%',
+          scrub: 0.1,
+        },
+      })
+
+      gsap.from('.fry_pan img', {
+        x: '-50%',
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.fry_pan img',
+          start: 'top 90%',
+          toggleActions: 'play stop reverse reset',
+        },
+      })
+
+      gsap.from('.heading_text h1', {
+        x: '-10%',
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.heading_text h1',
+          start: 'top 90%',
+          toggleActions: 'play stop reverse reset',
+        },
+      })
+
+      gsap.from('.heading_text h2', {
+        x: '-20%',
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.heading_text h2',
+          start: 'top 90%',
+          toggleActions: 'play stop reverse reset',
+        },
+      })
+
+      gsap.from('.motion_green_chilli img', {
+        y: '10%',
+        duration: 1,
+        opacity: 0.5,
+        scrollTrigger: {
+          trigger: '.motion_green_chilli img',
+          start: 'top 90%',
+          scrub: 0.1,
+        },
+      })
+
+      gsap.from('.button_section .btn_1', {
+        y: '22%',
+        duration: 1,
+        opacity: 0.5,
+        scrollTrigger: {
+          trigger: '.button_section .btn_1',
+          start: 'top 90%',
+          toggleActions: 'play stop reverse reset',
+        },
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <div className="section2 w-full min-h-[100vh] bg-[#16171a] relative overflow-visible md:overflow-hidden">
+    <div ref={sectionRef} className="section2 w-full min-h-[100vh] bg-[#16171a] relative overflow-visible md:overflow-hidden">
       <div
         className="footer_primary w-full h-auto md:h-[65%] bg-cover relative md:absolute md:top-1/2 md:-translate-y-1/2 py-12 md:py-0"
         style={{ backgroundImage: "url('/assests/main%20image.jpg')" }}

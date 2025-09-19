@@ -3,9 +3,134 @@
   Uses public assets under /assests/ and Tailwind classes identical to the original.
 */
 
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
 export default function Hero() {
+  const heroRef = useRef(null)
+
+  useEffect(() => {
+    if (!heroRef.current) return
+
+    const ctx = gsap.context(() => {
+      // Tomato image
+      gsap.from('.tomato img', {
+        scale: 0,
+        delay: 1.2,
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.tomato img',
+          toggleActions: 'play reverse restart reset',
+        },
+      })
+
+      // Headline and paragraph
+      gsap.from('.herobox h1', {
+        x: '-80%',
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.tomato img',
+          toggleActions: 'play reverse restart reset',
+        },
+      })
+      gsap.from('.herobox p', {
+        y: '150%',
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.herobox p',
+          toggleActions: 'play reverse restart reset',
+        },
+      })
+
+      // CTA buttons
+      gsap.from('.herobox a.first', {
+        scale: 0,
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.herobox a.first',
+          toggleActions: 'play reverse restart reset',
+        },
+      })
+      gsap.from('.herobox a.second', {
+        scale: 0,
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.herobox a.second',
+          toggleActions: 'play reverse restart reset',
+        },
+      })
+
+      // Product image and chilli
+      gsap.from('.product_image img', {
+        x: '100%',
+        delay: 1.2,
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.product_image img',
+          toggleActions: 'play reverse restart reset',
+        },
+      })
+      gsap.from('.chilli img', {
+        x: '100%',
+        delay: 1.2,
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.chilli img',
+          toggleActions: 'play reverse restart reset',
+        },
+      })
+
+      // Price pill
+      gsap.from('.herobox a.third', {
+        x: '200%',
+        delay: 1.2,
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.herobox a.third',
+          toggleActions: 'play reverse restart reset',
+        },
+      })
+
+      // Motion elements
+      gsap.from('.motionChilli img', {
+        y: '20%',
+        delay: 1.2,
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.motionChilli img',
+          toggleActions: 'play reverse restart reset',
+        },
+      })
+      gsap.from('.motionTomato img', {
+        x: '-100%',
+        delay: 1.2,
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.motionTomato img',
+          toggleActions: 'play reverse restart reset',
+        },
+      })
+    }, heroRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
     <div
+      ref={heroRef}
       className="herobox w-full h-[120vh] md:h-[110vh] bg-cover relative overflow-hidden"
       style={{ backgroundImage: "url('/assests/main%20image.jpg')" }}
     >

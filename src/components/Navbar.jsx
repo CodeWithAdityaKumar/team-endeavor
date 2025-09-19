@@ -3,14 +3,30 @@
   Assumes assets are located under /public/assests/ (note the original path uses 'assests').
 */
 
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+
 export default function Navbar() {
+  const navRef = useRef(null)
+  const navRefimg = useRef(null)
+
+  useEffect(() => {
+    if (!navRef.current) return
+    // From script.js: gsap.from(".navabar", { y: "-200%", duration: 1.5 })
+    const ctx = gsap.context(() => {
+      gsap.from(navRef.current, { x: '200%', duration: 1.5, immediateRender: false })
+      gsap.from(navRefimg.current, { x: '-200%', duration: 1.5, immediateRender: false })
+    }, navRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <div className="w-full h-[80px] md:h-[120px] bg-transparent absolute flex items-center justify-between px-4 md:px-[70px] z-[200]">
+  <div className="navabar w-full h-[80px] md:h-[120px] bg-transparent absolute top-0 left-0 flex items-center justify-between px-4 md:px-[70px] z-[200]">
       <div id="logo">
         {/* Using public asset path */}
-        <img src="/assests/logo.png" alt="logo" className="w-[45%] md:w-2/5" />
+        <img src="/assests/logo.png" alt="logo" className="w-[45%] md:w-2/5" ref={navRefimg} />
       </div>
-      <div className="listing hidden md:block">
+      <div className="listing hidden md:block" ref={navRef}>
         <ul className="list-none">
           <li className="inline-block mx-2 md:mx-[18px]">
             <a href="#" className="no-underline text-white transition duration-500 font-semibold hover:text-[#cb1234]">Home</a>

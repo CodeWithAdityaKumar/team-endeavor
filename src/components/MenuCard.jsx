@@ -19,7 +19,7 @@ export default function MenuCard({
 }) {
   return (
     <div
-      className={`col_1 w-full md:w-[23.5%] h-[360px] md:h-full bg-cover bg-center rounded-[10px] relative overflow-hidden ${origin}`}
+      className={`col_1 w-full md:w-[23.5%] h-[340px] sm:h-[360px] md:h-full bg-cover bg-center rounded-[10px] relative overflow-hidden ${origin}`}
       style={{ backgroundImage: `url('${bgImage}')` }}
     >
       {/* dark radial overlay */}
@@ -27,24 +27,24 @@ export default function MenuCard({
 
       {/* price */}
       <div className="price_tag">
-        <p className="text-[#d3d3d3] font-bold text-[5vw] md:text-[1.4vw] absolute top-[5%] left-[5%] z-[20]">{price}</p>
+        <p className="text-[#d3d3d3] font-bold text-[4.2vw] sm:text-[3.8vw] md:text-[1.4vw] absolute top-[5%] left-[5%] z-[20]">{price}</p>
       </div>
 
       {/* product image */}
       <img
         src={itemImage}
         alt="menu item"
-        className="w-[160px] md:w-[260px] z-[10] absolute top-[16%] md:top-[20%] left-1/2 -translate-x-1/2"
+        className="w-[150px] sm:w-[170px] md:w-[260px] z-[10] absolute top-[16%] md:top-[20%] left-1/2 -translate-x-1/2"
       />
 
       {/* title */}
-      <h2 className="text-[#d3d3d3] absolute bottom-[28%] left-[5%] text-[18px] md:text-[22px] z-[20]">
+      <h2 className="text-[#d3d3d3] absolute bottom-[28%] left-[5%] text-[17px] sm:text-[18px] md:text-[22px] z-[20]">
         {title}
       </h2>
 
       {/* description */}
       <div className="sub_info">
-        <p className="text-[#808080] text-[11px] w-[90%] absolute bottom-[17%] left-[5%] z-[20] line-clamp-2 md:line-clamp-none">
+        <p className="text-[#808080] text-[11px] sm:text-[12px] w-[90%] absolute bottom-[17%] left-[5%] z-[20] line-clamp-2 md:line-clamp-none">
           {description}
         </p>
       </div>
@@ -57,7 +57,7 @@ export default function MenuCard({
       </div>
 
       {/* add to cart */}
-      <div className="cart_btn w-[60px] h-[30px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(115,212,0,1)_0%,rgba(53,116,0,1)_100%)] rounded-[50px] absolute bottom-[5%] left-[38%] text-white flex items-center justify-center cursor-pointer z-[20]">
+      <div className="cart_btn w-[60px] h-[30px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(115,212,0,1)_0%,rgba(53,116,0,1)_100%)] rounded-[50px] absolute bottom-[5%] left-[38%] sm:left-[42%] md:left-[38%] text-white flex items-center justify-center cursor-pointer z-[20]">
         <i className="fa-solid fa-cart-shopping"></i>
       </div>
     </div>

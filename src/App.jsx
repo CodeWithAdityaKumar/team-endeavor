@@ -30,7 +30,7 @@ export default function App() {
   {/* Burger animation section (from index4.html) */}
   {/* <BurgerAnimation /> */}
       {/* Menu section */}
-      {/* <MenuSection /> */}
+      <MenuSection />
       {/* Promo section */}
       <PromoSection />
     </div>

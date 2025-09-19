@@ -28,9 +28,9 @@ export default function App() {
       {/* Hero section */}
       <Hero />
   {/* Burger animation section (from index4.html) */}
-  <BurgerAnimation />
+  {/* <BurgerAnimation /> */}
       {/* Menu section */}
-      <MenuSection />
+      {/* <MenuSection /> */}
       {/* Promo section */}
       <PromoSection />
     </div>

@@ -131,7 +131,7 @@ export default function Hero() {
   return (
     <div
       ref={heroRef}
-      className="herobox w-full h-[120vh] md:h-[110vh] bg-cover relative overflow-hidden"
+      className="herobox w-full min-h-[100svh] md:h-[110vh] bg-cover relative overflow-hidden md:pt-0 pt-24 sm:pt-28"
       style={{ backgroundImage: "url('/assests/main%20image.jpg')" }}
     >
       {/* overlay equivalent of ::before */}
@@ -147,7 +147,7 @@ export default function Hero() {
         <img
           src="/assests/burger.png"
           alt="product"
-          className="absolute right-[2%] md:right-[5%] top-[38%] md:top-[25%] w-[75%] sm:w-[60%] md:w-[40%] z-[3] animate-moving"
+          className="block mx-auto mt-2 w-[82%] sm:w-[65%] z-[3] md:absolute md:right-[5%] md:top-[25%] md:w-[40%] md:animate-moving"
         />
       </div>
 
@@ -179,33 +179,33 @@ export default function Hero() {
         />
       </div>
 
-      <h1 className="text-white absolute z-[5] top-[18%] md:top-[30%] left-[7%] md:left-[13%] text-[9vw] md:text-[6vw] w-[80%] md:w-[30%] leading-[60px] md:leading-[95px] font-bold">
+      <h1 className="text-white z-[5] md:absolute md:top-[30%] md:left-[13%] text-[9.5vw] sm:text-[8vw] md:text-[6vw] max-w-[85%] md:w-[30%] leading-[1.1] md:leading-[95px] font-bold px-6 sm:px-8 mt-4 md:mt-0">
         Burger Spiozek
       </h1>
-      <p className="absolute top-[35%] md:top-[58%] left-[7%] md:left-[13%] z-[5] text-[#7f7f7f] w-[85%] md:w-[33%] tracking-normal">
+      <p className="md:absolute md:top-[58%] md:left-[13%] z-[5] text-[#b0b0b0] md:text-[#7f7f7f] w-[85%] md:w-[33%] tracking-normal px-6 sm:px-8 mt-3 md:mt-0">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias minima, praesentium deserunt tempore temporibus reprehenderit optio itaque repudiandae cupiditate.
       </p>
 
-      <div className="absolute z-[5] top-[50%] md:top-[70%] left-[7%] md:left-[13%]">
+      <div className="z-[5] md:absolute md:top-[70%] md:left-[13%] px-6 sm:px-8 mt-6 md:mt-0">
         <a
           href="#"
-          className="group first no-underline text-white w-[150px] md:w-[160px] h-[46px] md:h-[50px] rounded-[50px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(203,18,52,1)_0%,rgba(134,8,31,1)_100%)] text-center flex items-center justify-center shadow-btn overflow-hidden relative"
+          className="group first no-underline text-white w-[160px] md:w-[160px] h-[48px] md:h-[50px] rounded-[50px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(203,18,52,1)_0%,rgba(134,8,31,1)_100%)] text-center inline-flex items-center justify-center shadow-btn overflow-hidden relative"
         >
           Order Now <i className="fa-solid fa-cart-shopping text-[12px] ml-[10px]"></i>
           <span className="pointer-events-none before:absolute before:content-[''] before:w-[10px] before:h-[120px] before:bg-white before:rotate-45 before:top-[-80%] before:left-[-20%] group-hover:before:animate-pass"></span>
         </a>
       </div>
 
-      <div className="absolute z-[5] top-[50%] md:top-[70%] left-[46%] md:left-[25%] -translate-x-1/2 md:translate-x-0">
+      <div className="z-[5] md:absolute md:top-[70%] md:left-[25%] md:translate-x-0 px-6 sm:px-8 mt-3 md:mt-0">
         <a
           href="#"
-          className="second no-underline text-white w-[150px] md:w-[160px] h-[46px] md:h-[50px] rounded-[50px] bg-transparent border border-white text-center flex items-center justify-center transition duration-500 hover:bg-[#cb1234] hover:border-[#cb1234]"
+          className="second no-underline text-white w-[160px] md:w-[160px] h-[48px] md:h-[50px] rounded-[50px] bg-transparent border border-white text-center inline-flex items-center justify-center transition duration-500 hover:bg-[#cb1234] hover:border-[#cb1234]"
         >
           Explore Now <i className="fa-solid fa-arrow-right text-[12px] ml-[10px]"></i>
         </a>
       </div>
 
-      <div className="absolute top-[28%] md:top-[36%] left-[55%] z-[5]">
+      <div className="hidden md:flex md:absolute md:top-[36%] md:left-[55%] z-[5]">
         <a
           href="#"
           className="third no-underline text-white w-[140px] md:w-[160px] h-[46px] md:h-[50px] rounded-[50px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(255,0,47,1)_0%,rgba(135,0,25,1)_100%)] text-center flex items-center justify-center shadow-btn2 animate-btnMove"

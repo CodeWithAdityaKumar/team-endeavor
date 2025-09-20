@@ -14,6 +14,13 @@ export default function MenuSectionPage() {
   const sectionRef = useRef(null)
 
   useEffect(() => {
+
+    // Scroll to top when the component mounts
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Optional for smooth scrolling
+    });
+
     if (!sectionRef.current) return
     const ctx = gsap.context(() => {
       gsap.from('.section1 h1', {
@@ -54,7 +61,7 @@ export default function MenuSectionPage() {
         opacity: 0,
         scrollTrigger: {
           trigger: '.section1 .row_1 .col_1:nth-child(1)',
-          toggleActions: 'play stop  reset',
+          toggleActions: 'play   reset',
         },
       })
       gsap.from('.section1 .row_1 .col_1:nth-child(2)', {
@@ -63,7 +70,7 @@ export default function MenuSectionPage() {
         opacity: 0,
         scrollTrigger: {
           trigger: '.section1 .row_1 .col_1:nth-child(2)',
-          toggleActions: 'play stop  reset',
+          toggleActions: 'play   reset',
         },
       })
       gsap.from('.section1 .row_1 .col_1:nth-child(3)', {
@@ -72,7 +79,7 @@ export default function MenuSectionPage() {
         opacity: 0,
         scrollTrigger: {
           trigger: '.section1 .row_1 .col_1:nth-child(3)',
-          toggleActions: 'play stop  reset',
+          toggleActions: 'play   reset',
         },
       })
       gsap.from('.section1 .row_1 .col_1:nth-child(4)', {
@@ -81,7 +88,7 @@ export default function MenuSectionPage() {
         opacity: 0,
         scrollTrigger: {
           trigger: '.section1 .row_1 .col_1:nth-child(4)',
-          toggleActions: 'play stop  reset',
+          toggleActions: 'play   reset',
         },
       })
 
@@ -117,8 +124,8 @@ export default function MenuSectionPage() {
       <h1 className="text-white text-[9vw] md:text-[3vw] md:absolute md:top-[8%]">MENU</h1>
 
       {/* Category buttons */}
-  <div className="menu_btn w-full md:w-[55%] h-auto md:h-[80px] relative md:absolute md:top-[13%] mt-4 md:mt-0 flex flex-wrap gap-3 md:gap-2 md:flex-nowrap items-center justify-start md:justify-between z-10">
-        {['Startery','Burgery','Satoshi','Ziberia','Poutine'].map((label, idx) => (
+      <div className="menu_btn w-full md:w-[55%] h-auto md:h-[80px] relative md:absolute md:top-[13%] mt-4 md:mt-0 flex flex-wrap gap-3 md:gap-2 md:flex-nowrap items-center justify-start md:justify-between z-10">
+        {['Pizza','Burgers','Samosa','Hot Dog','Milkshake'].map((label, idx) => (
           <a
             key={label}
             href="#"

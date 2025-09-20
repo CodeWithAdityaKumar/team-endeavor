@@ -7,6 +7,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import MenuCard from './MenuCard'
+import { Link } from 'react-router-dom'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -119,7 +120,7 @@ export default function MenuSection({ showWatchMore = true }) {
 
       {/* Category buttons */}
       <div className="menu_btn w-full md:w-[55%] h-auto md:h-[80px] md:absolute md:top-[13%] mt-4 md:mt-0 flex flex-wrap gap-3 md:gap-2 md:flex-nowrap items-center justify-start md:justify-between">
-        {['Startery','Burgery','Satoshi','Ziberia','Poutine'].map((label, idx) => (
+        {['Pizza','Burgers','Samosa','Hot Dog','Milkshake'].map((label, idx) => (
           <a
             key={label}
             href="#"
@@ -155,7 +156,7 @@ export default function MenuSection({ showWatchMore = true }) {
 
       {/* Bottom CTA + decorations */}
       {showWatchMore && (
-        <a href="#" className="footer_btn w-[180px] h-[50px] border border-gray-500 rounded-[50px] md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 no-underline text-gray-500 flex items-center justify-center transition duration-500 font-extrabold hover:bg-[#cb1234] hover:text-white mt-8 md:mt-0 mx-auto">Watch More</a>
+        <Link to="/menu" className="footer_btn w-[180px] h-[50px] border border-gray-500 rounded-[50px] md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 no-underline text-gray-500 flex items-center justify-center transition duration-500 font-extrabold hover:bg-[#cb1234] hover:text-white mt-8 md:mt-0 mx-auto">Watch More</Link>
       )}
 
       <div className="mochilli hidden md:block"><img src="/assests/motion%20blur%20red%20chilli.png" alt="motion chilli" className="w-[20%] absolute bottom-[5%] left-[-8%] -rotate-90" /></div>

@@ -11,10 +11,10 @@
 
 export default function MenuCard({
   bgImage = "/assests/main%20image.jpg",
-  price = "26.90 zt",
+  price = "₹99.00",
   itemImage = "/assests/menu%20item.png",
-  title = "Burger Czarnuszek",
-  description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus non quod ipsam, voluptatum assumenda deleniti odit reiciendis voluptate. Totam, ut!",
+  title = "Black Cumin Burger",
+  description = "A gourmet burger crafted with signature spices and fresh ingredients for unforgettable flavor.",
   origin = "origin-bottom-right",
 }) {
   return (
@@ -57,7 +57,7 @@ export default function MenuCard({
       </div>
 
       {/* add to cart */}
-      <div className="cart_btn w-[60px] h-[30px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(115,212,0,1)_0%,rgba(53,116,0,1)_100%)] rounded-[50px] absolute bottom-[5%] left-[38%] sm:left-[42%] md:left-[38%] text-white flex items-center justify-center cursor-pointer z-[20]">
+      <div className="cart_btn w-[60px] h-[30px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(115,212,0,1)_0%,rgba(53,116,0,1)_100%)] rounded-[50px] absolute bottom-[5%] left-[38%] sm:left-[42%] md:left-[42%] text-white flex items-center justify-center cursor-pointer z-[20]">
         <i className="fa-solid fa-cart-shopping"></i>
       </div>
     </div>

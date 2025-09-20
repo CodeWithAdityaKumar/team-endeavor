@@ -180,10 +180,10 @@ export default function Hero() {
       </div>
 
       <h1 className="text-white z-[5] md:absolute md:top-[30%] md:left-[13%] text-[9.5vw] sm:text-[8vw] md:text-[6vw] max-w-[85%] md:w-[30%] leading-[1.1] md:leading-[95px] font-bold px-6 sm:px-8 mt-4 md:mt-0">
-        Burger Spiozek
+        Spicy Burger
       </h1>
       <p className="md:absolute md:top-[58%] md:left-[13%] z-[5] text-[#b0b0b0] md:text-[#7f7f7f] w-[85%] md:w-[33%] tracking-normal px-6 sm:px-8 mt-3 md:mt-0">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias minima, praesentium deserunt tempore temporibus reprehenderit optio itaque repudiandae cupiditate.
+        Crafted with passion, bold spices, and the freshest ingredients. Taste the difference with every bite.
       </p>
 
       <div className="z-[5] md:absolute md:top-[75%] md:left-[13%] px-6 sm:px-8 mt-6 md:mt-0">
@@ -210,7 +210,7 @@ export default function Hero() {
           href="#"
           className="third no-underline text-white w-[140px] md:w-[160px] h-[46px] md:h-[50px] rounded-[50px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(255,0,47,1)_0%,rgba(135,0,25,1)_100%)] text-center flex items-center justify-center shadow-btn2 animate-btnMove"
         >
-          26.69xl
+          ₹99 only
         </a>
       </div>
     </div>

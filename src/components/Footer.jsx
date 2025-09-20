@@ -28,7 +28,7 @@ export default function Footer() {
               <li><a className="hover:text-[#cb1234] transition" href="/">Home</a></li>
               <li><a className="hover:text-[#cb1234] transition" href="/menu">Burgers</a></li>
               <li><a className="hover:text-[#cb1234] transition" href="/about">About</a></li>
-              <li><a className="hover:text-[#cb1234] transition" href="#">Contact</a></li>
+              <li><a className="hover:text-[#cb1234] transition" href="/contact">Contact</a></li>
             </ul>
           </nav>
 

@@ -34,9 +34,8 @@ export default function About() {
             <div className="rounded-xl overflow-hidden shadow-icon border border-[#292a2f]">
               <img src="/assests/main%20image.jpg" alt="kitchen" className="w-full h-64 md:h-80 object-cover" />
             </div>
-            {/* Burger image (mobile below, desktop overlapping) */}
-            <img src="/assests/burger.png" alt="burger" className="md:hidden w-40 mx-auto mt-4" />
-            <img src="/assests/burger.png" alt="burger" className="hidden md:block w-40 absolute -right-6 -bottom-10 drop-shadow-[0_15px_40px_rgba(203,18,52,0.45)]" />
+            {/* Burger image centered for all breakpoints */}
+            <img src="/assests/burger.png" alt="burger" className="w-32 sm:w-36 md:w-40 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 drop-shadow-[0_15px_40px_rgba(203,18,52,0.45)]" />
             <img src="/assests/tomato.png" alt="tomato" className="hidden md:block w-28 absolute -left-6 -bottom-6 opacity-80" />
             <img src="/assests/green%20chilli.png" alt="green chilli" className="hidden md:block w-24 absolute -right-8 -top-6 rotate-12" />
           </div>

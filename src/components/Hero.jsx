@@ -210,7 +210,7 @@ export default function Hero() {
           href="#"
           className="third no-underline text-white w-[140px] md:w-[160px] h-[46px] md:h-[50px] rounded-[50px] bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(255,0,47,1)_0%,rgba(135,0,25,1)_100%)] text-center flex items-center justify-center shadow-btn2 animate-btnMove"
         >
-          ₹99 only
+          24.84xl
         </a>
       </div>
     </div>

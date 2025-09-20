@@ -6,11 +6,12 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { defaultCategories, defaultActiveIndex } from '../data/menuConfig'
 import MenuCard from './MenuCard'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function MenuSectionPage() {
+export default function MenuSectionPage({ categories = defaultCategories, activeIndex = defaultActiveIndex }) {
   const sectionRef = useRef(null)
 
   useEffect(() => {
@@ -125,11 +126,11 @@ export default function MenuSectionPage() {
 
       {/* Category buttons */}
       <div className="menu_btn w-full md:w-[55%] h-auto md:h-[80px] relative md:absolute md:top-[13%] mt-4 md:mt-0 flex flex-wrap gap-3 md:gap-2 md:flex-nowrap items-center justify-start md:justify-between z-10">
-        {['Pizza','Burgers','Samosa','Hot Dog','Milkshake'].map((label, idx) => (
+        {categories.map((label, idx) => (
           <a
             key={label}
             href="#"
-            className={`${idx===1 ? 'text-white bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(203,18,52,1)_0%,rgba(134,8,31,1)_100%)]' : 'text-[#828282] bg-[#343434]'} w-[46%] sm:w-[160px] h-[46px] md:h-[50px] rounded-[50px] text-center flex items-center justify-center overflow-hidden no-underline`}
+            className={`${idx===activeIndex ? 'text-white bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(203,18,52,1)_0%,rgba(134,8,31,1)_100%)]' : 'text-[#828282] bg-[#343434]'} w-[46%] sm:w-[160px] h-[46px] md:h-[50px] rounded-[50px] text-center flex items-center justify-center overflow-hidden no-underline`}
           >
             {label}
           </a>

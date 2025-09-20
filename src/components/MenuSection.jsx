@@ -5,13 +5,14 @@
 
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
+import { defaultCategories, defaultActiveIndex } from '../data/menuConfig'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import MenuCard from './MenuCard'
 import { Link } from 'react-router-dom'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function MenuSection({ showWatchMore = true }) {
+export default function MenuSection({ showWatchMore = true, categories = defaultCategories, activeIndex = defaultActiveIndex }) {
   const sectionRef = useRef(null)
 
   useEffect(() => {
@@ -120,11 +121,11 @@ export default function MenuSection({ showWatchMore = true }) {
 
       {/* Category buttons */}
       <div className="menu_btn w-full md:w-[55%] h-auto md:h-[80px] md:absolute md:top-[13%] mt-4 md:mt-0 flex flex-wrap gap-3 md:gap-2 md:flex-nowrap items-center justify-start md:justify-between">
-        {['Pizza','Burgers','Samosa','Hot Dog','Milkshake'].map((label, idx) => (
+        {categories.map((label, idx) => (
           <a
             key={label}
             href="#"
-            className={`flex no-underline ${idx===1 ? 'text-white bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(203,18,52,1)_0%,rgba(134,8,31,1)_100%)]' : 'text-[#828282] bg-[#343434]'} w-[46%] sm:w-[160px] h-[46px] md:h-[50px] rounded-[50px] text-center flex items-center justify-center overflow-hidden`}
+            className={`flex no-underline ${idx===activeIndex ? 'text-white bg-[linear-gradient(90deg,rgba(0,0,0,0)_-34%,rgba(203,18,52,1)_0%,rgba(134,8,31,1)_100%)]' : 'text-[#828282] bg-[#343434]'} w-[46%] sm:w-[160px] h-[46px] md:h-[50px] rounded-[50px] text-center flex items-center justify-center overflow-hidden`}
           >
             {label}
           </a>

@@ -1,9 +1,9 @@
 export const defaultCategories = [
-  'Starters',
+  'Pizza',
   'Burgers',
-  'Satoshi',
-  'Ziberia',
-  'Poutine',
+  'Samosas',
+  'Hot Dogs',
+  'Milkshakes',
 ]
 
 export const defaultActiveIndex = 1 // highlight "Burgers" by default to match current design
